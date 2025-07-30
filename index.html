@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghunghat & Krishna Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-purple': '#8B5CF6', // violet-500
+              'brand-purple-light': '#A78BFA', // violet-400
+              'brand-lime': '#A3E635', // lime-400
+              'brand-lime-dark': '#4D7C0F', // lime-700 for text on lime
+              'dark-bg': '#18181b', // zinc-900
+              'dark-card': '#27272a', // zinc-800
+              'dark-border': '#3f3f46', // zinc-700
+              'light-text': '#f4f4f5', // zinc-100
+              'medium-text': '#a1a1aa', // zinc-400
+              'dark-text': '#71717a', // zinc-500
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'], // Example, Tailwind uses system fonts by default
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(270deg, #18181b, #222225, #18181b); /* zinc-900, slightly lighter zinc, zinc-900 */
+        background-size: 400% 400%;
+        animation: subtleGradientAnimation 30s ease infinite;
+        color: #f4f4f5; /* zinc-100 */
+        transition: background-color 0.3s ease;
+      }
+      /* Custom scrollbar for webkit browsers */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #27272a; /* zinc-800 */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3f3f46; /* zinc-700 */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #52525b; /* zinc-600 */
+      }
+
+      /* Keyframe animations */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes pulse-fab-lime {
+        0% { box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.5); } /* brand-lime with alpha */
+        70% { box-shadow: 0 0 0 10px rgba(163, 230, 53, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(163, 230, 53, 0); }
+      }
+      @keyframes starPulse {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.15); opacity: 1; }
+      }
+      @keyframes subtleGradientAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      @keyframes modalFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes modalScaleUp {
+        from { opacity: 0; transform: scale(0.97) translateY(10px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
+      }
+      @keyframes popoverFadeInUp {
+        from { opacity: 0; transform: translateY(8px) scale(0.98); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      @keyframes glowPulseToday {
+        0%, 100% { 
+          transform: scale(1);
+          box-shadow: 0 0 4px rgba(167, 139, 250, 0.4), 0 0 8px rgba(167, 139, 250, 0.3); /* brand-purple-light */
+        }
+        50% { 
+          transform: scale(1.03);
+          box-shadow: 0 0 10px rgba(167, 139, 250, 0.6), 0 0 18px rgba(167, 139, 250, 0.5);
+        }
+      }
+
+      /* Animation utility classes */
+      .animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; }
+      .animate-fadeInUp { animation: fadeInUp 0.4s ease-out forwards; }
+      .animate-pulse-fab-lime-on-hover:hover { 
+        animation: pulse-fab-lime 1.5s infinite;
+      }
+      .animate-star-pulse {
+        animation: starPulse 2.5s infinite ease-in-out;
+      }
+      .modal-backdrop-animate { animation: modalFadeIn 0.25s ease-out forwards; }
+      .modal-content-animate { animation: modalScaleUp 0.25s ease-out forwards; }
+      .popover-animate {
+        animation: popoverFadeInUp 0.2s ease-out forwards;
+        transform-origin: top center;
+      }
+      .animate-glow-pulse-today {
+        animation: glowPulseToday 2.2s infinite ease-in-out;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "recharts": "https://esm.sh/recharts@^2.15.3",
+    "recharts/": "https://esm.sh/recharts@^2.15.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
